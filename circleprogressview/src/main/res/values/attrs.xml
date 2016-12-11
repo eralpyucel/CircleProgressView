@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="CircularProgressView">
+        <attr name="cpv_text_prefix" format="string"/>
+        <attr name="cpv_progress" format="integer" />
+        <attr name="cpv_circle_color" format="color" />
+        <attr name="cpv_background_circle_color" format="color" />
+        <attr name="cpv_text_color" format="color"/>
+        <attr name="cpv_text_size" format="integer" />
+        <attr name="cpv_circle_width" format="dimension" />
+        <attr name="cpv_background_circle_width" format="dimension" />
+    </declare-styleable>
+
+</resources>
