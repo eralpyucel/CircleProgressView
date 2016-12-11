@@ -38,7 +38,7 @@ public class CircleProgressView extends View {
 
     private boolean mIsTextEnabled;
 
-    private String mTextPrefix;
+    private String mTextPrefix="";
     private float mStartAngle;
 
     private TextView mTextView;
@@ -97,6 +97,8 @@ public class CircleProgressView extends View {
     }
 
     private void showTextView(boolean mIsTextEnabled) {
+        mTextView.setText(getTextPrefix() +
+                String.valueOf(Math.round(mProgress)));
         mTextView.setVisibility(mIsTextEnabled ? View.VISIBLE : View.GONE);
         invalidate();
     }
@@ -177,6 +179,7 @@ public class CircleProgressView extends View {
 
     public void setTextPrefix(String textPrefix) {
         this.mTextPrefix = textPrefix;
+        showTextView(mIsTextEnabled);
     }
 
     public float getProgress() {
