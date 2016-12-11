@@ -5,7 +5,27 @@ An Android component to show progress in percentage.
 ![](https://github.com/eralpyucel/CircleProgressView/blob/master/preview.gif)
 <img src="https://github.com/eralpyucel/CircleProgressView/blob/master/preview_image.png" width="300">
 
-##Sample
+## Gradle
+
+Add it in your root build.gradle at the end of repositories:
+
+```
+dependencies {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+
+Add the dependency:
+
+```
+dependencies {
+     compile 'com.github.eralpyucel:CircleProgressView:v1.0'
+}
+```
+
+
+##Usage
 ###XML:
 ```xml
 <com.eralp.circleprogressview.CircleProgressView
@@ -44,4 +64,3 @@ mCircleProgressView.addAnimationListener(new ProgressAnimationListener() {
         });
 				
 ```
-				
