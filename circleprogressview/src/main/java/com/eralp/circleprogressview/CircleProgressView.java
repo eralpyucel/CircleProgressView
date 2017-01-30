@@ -38,7 +38,9 @@ public class CircleProgressView extends View {
 
     private boolean mIsTextEnabled;
 
-    private String mTextPrefix="";
+    private String mTextPrefix;
+    private String mTextSuffix;
+
     private float mStartAngle;
 
     private TextView mTextView;
@@ -68,6 +70,7 @@ public class CircleProgressView extends View {
             mTextColor = typedArray.getInt(R.styleable.CircularProgressView_cpv_text_color, mTextColor);
             mTextSize = typedArray.getInt(R.styleable.CircularProgressView_cpv_text_size, mTextSize);
             mTextPrefix = typedArray.getString(R.styleable.CircularProgressView_cpv_text_prefix);
+            mTextSuffix = typedArray.getString(R.styleable.CircularProgressView_cpv_text_suffix);
         } finally {
             typedArray.recycle();
         }
@@ -98,7 +101,8 @@ public class CircleProgressView extends View {
 
     private void showTextView(boolean mIsTextEnabled) {
         mTextView.setText(getTextPrefix() +
-                String.valueOf(Math.round(mProgress)));
+                String.valueOf(Math.round(mProgress)) +
+                getTextSuffix());
         mTextView.setVisibility(mIsTextEnabled ? View.VISIBLE : View.GONE);
         invalidate();
     }
@@ -112,7 +116,6 @@ public class CircleProgressView extends View {
         mBackgroundColor = Color.GRAY;
         mStartAngle = -90;
         mIsTextEnabled = true;
-        mTextPrefix = "";
         mTextSize = 20;
     }
 
@@ -174,11 +177,20 @@ public class CircleProgressView extends View {
     }
 
     public String getTextPrefix() {
-        return mTextPrefix;
+        return mTextPrefix != null ? mTextPrefix : "";
     }
 
     public void setTextPrefix(String textPrefix) {
         this.mTextPrefix = textPrefix;
+        showTextView(mIsTextEnabled);
+    }
+
+    public String getTextSuffix() {
+        return mTextSuffix != null ? mTextSuffix : "";
+    }
+
+    public void setTextSuffix(String textSuffix) {
+        this.mTextSuffix = textSuffix;
         showTextView(mIsTextEnabled);
     }
 
@@ -225,7 +237,7 @@ public class CircleProgressView extends View {
 
     public void setProgress(float progress) {
         this.mProgress = (progress <= 100) ? progress : 100;
-        mTextView.setText(mTextPrefix + String.valueOf(Math.round(mProgress)));
+        mTextView.setText(mTextPrefix + String.valueOf(Math.round(mProgress)) + mTextSuffix);
         showTextView(mIsTextEnabled);
         invalidate();
 
@@ -266,7 +278,8 @@ public class CircleProgressView extends View {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 mTextView.setText(mTextPrefix +
-                        String.valueOf(Math.round((Float) animation.getAnimatedValue())));
+                        String.valueOf(Math.round((Float) animation.getAnimatedValue())) +
+                        mTextSuffix);
             }
         });
         objectAnimator.start();

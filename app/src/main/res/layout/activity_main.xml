@@ -28,7 +28,7 @@
             app:cpv_circle_width="6dp"
             app:cpv_background_circle_width="1dp"
             app:cpv_background_circle_color="#5b253048"
-            app:cpv_text_prefix="%"
+            app:cpv_text_suffix="%"
             app:cpv_text_size="40"
             app:cpv_text_color="#27375c"/>
 
