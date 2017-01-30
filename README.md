@@ -20,7 +20,7 @@ Add the dependency:
 
 ```
 dependencies {
-     compile 'com.github.eralpyucel:CircleProgressView:v1.0'
+     compile 'com.github.eralpyucel:CircleProgressView:v1.1'
 }
 ```
 
