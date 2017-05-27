@@ -1,7 +1,7 @@
 # CircleProgressView
 An Android component to show progress in percentage.
 
-####Screenshots:
+#### Screenshots:
 ![](https://github.com/eralpyucel/CircleProgressView/blob/master/preview.gif)
 <img src="https://github.com/eralpyucel/CircleProgressView/blob/master/preview_image.png" width="300">
 
@@ -25,8 +25,8 @@ dependencies {
 ```
 
 
-##Usage
-###XML:
+## Usage
+### XML:
 ```xml
 <com.eralp.circleprogressview.CircleProgressView
             android:id="@+id/circle_progress_view"
@@ -43,7 +43,7 @@ dependencies {
             app:cpv_text_color="#27375c"/>
 ```
 
-###Activity:
+### Activity:
 ```java
 mCircleProgressView = (CircleProgressView) findViewById(R.id.circle_progress_view);
 mCircleProgressView.setTextEnabled(false);
